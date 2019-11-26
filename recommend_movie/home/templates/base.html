@@ -14,8 +14,8 @@
     <span></span>
   </a>
   <div class="menu-list">
-    <li><a href="#">A</a></li><hr>
-    <li><a href="#">B</a></li><hr>
+    <li><a href="/">Home</a></li><hr>
+    <li><a href="movie_list/">Movie List</a></li><hr>
     <li><a href="#">C</a></li>
   </div>
   {% block body %}
@@ -48,16 +48,18 @@
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Nanum+Gothic:400,700,800&display=swap&subset=korean');
   *{
     margin: 0;
     padding: 0;
+    font-family: 'Nanum Gothic', sans-serif;
   }
   a{
     text-decoration: none;
   }
 
   .menu-trigger {
-    margin: 3px;
+    margin: 15px;
   }
   .menu-trigger,
   .menu-trigger span {
@@ -133,4 +135,15 @@
     color: grey;
   }
 
+  h1{
+    font-size: 40px;
+    font-family: 'Black Han Sans', sans-serif;
+    margin: 5px;
+    text-align: center;
+  }
+  h2{
+    font-size: 30px;
+    margin: 5px;
+    text-align: center;
+  }
 </style>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+
+.movie_card{
+  width: 50%;
+  height: 300px;
+  border: 1px solid black;
+  margin: 10px auto;
+}
+</style>
+{% endblock %}
+{% block body %}
+<h1>Today Movie</h1>
+<div id="main_movie" class="movie_card">
+  이 안에 포스터가 들어갈거에요~
+</div>
+<h2>{{movie}}</h2>
+
+{% endblock %}
