@@ -8,11 +8,11 @@ def index(request):
   movie_list = ['겨울왕국2', '블랙머니', '조커']
 
   movie = random.choice(movie_list)
-  return render(request, 'index.html', {'movie': movie})
+  return render(request, 'home/index.html', {'movie': movie})
   # return HttpResponse("hello, django!")
 
 
 def movie_list(request):
   movie_list = ['겨울왕국2', '블랙머니', '조커']
 
-  return render(request, 'movie_list.html', {'movie_list': movie_list})
+  return render(request, 'home/movie_list.html', {'movie_list': movie_list})
