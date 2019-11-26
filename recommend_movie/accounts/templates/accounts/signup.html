@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block css %}
+<style>
+form{
+  margin: 10px auto;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+form>p{
+  margin: 6px;
+}
+form>ul {
+  display: none;
+}
+span.helptext {
+  display: none;
+}
+input{
+  display: block;
+  margin: 10px auto;
+  margin-bottom: 16px;
+  border: solid 1px skyblue;
+  background-color: white;
+  height: 26px;
+  width: 60vw;
+  max-width: 300px;
+}
+</style>
+{% endblock %}
+{% block body %}
+<h1>Sign In</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{user_form.as_p}}
+</form>
+{% endblock %}
