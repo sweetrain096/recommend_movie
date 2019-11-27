@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block css %}
+<style>
+
+input{
+  display: block;
+  margin: 10px auto;
+  margin-bottom: 16px;
+  border: solid 1px skyblue;
+  background-color: white;
+  height: 26px;
+  width: 60vw;
+  max-width: 300px;
+}
+.submit{
+  margin-top:40px;
+  font-size: 16px;
+  width: 30vw;
+  max-width: 140px;
+}
+.signup_link{
+  margin-top: 100px;
+  text-align: center;
+}
+.signup_link>p{
+  margin: 5px 0px;
+}
+#signup_link{
+  border: 1px solid skyblue;
+  background-color: white;
+  padding: 3px 15px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<h1>Sign In</h1>
+<form class="account" method="POST">
+  {% csrf_token %}
+  {% for field in signin_form %}
+  {% if field.html_name == "username" %}
+    <label for="id_{{ field.html_name }}">ID</label>
+  {% else %}
+    <label for="id_{{ field.html_name }}">비밀번호</label>
+  {% endif %}
+    {{field}}
+  {% endfor %}
+  <input class="submit" type="submit" value="로그인">
+</form>
+<div class="signup_link">
+  <p>아직 '오늘의 영화' 회원이 아니시라구요?</p>
+  <p>아래 버튼을 눌러 많은 서비스를 즐겨보세요!</p>
+  <a href="/accounts/signup/"><button id="signup_link">회원가입</button></a>
+</div>
+{% endblock %}

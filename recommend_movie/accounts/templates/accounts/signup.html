@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block css %}
+<style>
+
+input{
+  display: block;
+  margin: 10px auto;
+  margin-bottom: 16px;
+  border: solid 1px skyblue;
+  background-color: white;
+  height: 26px;
+  width: 60vw;
+  max-width: 300px;
+}
+.submit{
+  margin-top:40px;
+  font-size: 16px;
+  width: 30vw;
+  max-width: 140px;
+}
+</style>
+{% endblock %}
+{% block body %}
+<h1>Sign Up</h1>
+<form method="POST" id="signup" class="account">
+  {% csrf_token %}
+  {% for field in user_form %}
+    <div class="form-group">
+      {% if field.html_name == 'username' %}
+      <label for="id_{{field.html_name}}">ID</label>
+      {% else %}
+      <label for="id_{{field.html_name}}">{{ field.label }}</label>
+      {% endif %}
+    </div>
+    {{ field }}
+  {% endfor %}
+  <input class="submit" type="submit" value="가입">
+</form>
+{% endblock %}

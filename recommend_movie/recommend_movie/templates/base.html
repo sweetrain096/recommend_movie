@@ -15,12 +15,18 @@
   </a>
   <div class="menu-list">
     <li><a href="/">Home</a></li><hr>
-    <li><a href="movie_list/">Movie List</a></li><hr>
-    <li><a href="#">C</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="/accounts/signin/">Logout</a></li><hr>
+    {% else %}
+      <li><a href="/accounts/signin/">Sign In</a></li><hr>
+    {% endif %}
+    <li><a href="/movie_list/">Movie List</a></li>
   </div>
   {% block body %}
   {% endblock %}
 </body>
+{% block script %}
+{% endblock %}
 </html>
 
 <script
@@ -45,6 +51,10 @@
     })
   });
 
+  $(function(){
+    let elements = $('label:eq(0)');
+    console.log(elements);
+  })
 </script>
 
 <style>
@@ -119,6 +129,7 @@
     font-size: 30px;
     text-align: center;
     margin-bottom:30px;
+    height: 100vh;
   }
 
   .menu-list.active>li{
@@ -147,5 +158,18 @@
     font-size: 30px;
     margin: 5px;
     text-align: center;
+  }
+
+  form.account{
+    margin: 10px auto;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16px;
+  }
+  form>ul {
+    display: none;
+  }
+  span.helptext {
+    display: none;
   }
 </style>
