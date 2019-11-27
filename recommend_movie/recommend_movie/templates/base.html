@@ -21,6 +21,8 @@
   {% block body %}
   {% endblock %}
 </body>
+{% block script %}
+{% endblock %}
 </html>
 
 <script
@@ -45,6 +47,10 @@
     })
   });
 
+  $(function(){
+    let elements = $('label:eq(0)');
+    console.log(elements);
+  })
 </script>
 
 <style>
@@ -148,5 +154,18 @@
     font-size: 30px;
     margin: 5px;
     text-align: center;
+  }
+
+  form.account{
+    margin: 10px auto;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16px;
+  }
+  form>ul {
+    display: none;
+  }
+  span.helptext {
+    display: none;
   }
 </style>
