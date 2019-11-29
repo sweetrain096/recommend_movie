@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 # 로그인 form, 로그인 유지
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 from .forms import UserCustomCreationForm
 
 # Create your views here.
@@ -31,7 +32,11 @@ def signin(request):
     if signin_form.is_valid():
       auth_login(request, signin_form.get_user())
       return redirect('movies:index')
-    else:
-      signin_form = AuthenticationForm()
+  else:
+    signin_form = AuthenticationForm()
   context = {'signin_form': signin_form}
   return render(request, 'accounts/signin.html', context)
+
+def logout(request):
+  auth_logout(request)
+  return redirect('movies:index')
